@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="com.buyfy.paytm.PaytmConstants"%>
-<%@ page import="java.util.*,com.paytm.pg.merchant.CheckSumServiceHelper"%>    
+<%@ page import="java.util.*"%>
+<% 
+//,com.paytm.pg.merchant.CheckSumServiceHelper"%>    
+%>
 <%
 System.out.println("-------------------start pgRedirect-------------------------------------");
 Enumeration<String> paramNames = request.getParameterNames();
@@ -23,7 +26,8 @@ parameters.put("EMAIL","akshat.singh1718@gmail.com");
 parameters.put("CALLBACK_URL", "http://localhost:8080/BuyFy/PaytmResponseServ");
 
 
-String checkSum =  CheckSumServiceHelper.getCheckSumServiceHelper().genrateCheckSum(PaytmConstants.MERCHANT_KEY, parameters);
+String checkSum =  "paytm checksum";
+//CheckSumServiceHelper.getCheckSumServiceHelper().genrateCheckSum(PaytmConstants.MERCHANT_KEY, parameters);
 
 
 StringBuilder outputHtml = new StringBuilder();
