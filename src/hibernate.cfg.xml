@@ -6,9 +6,9 @@
 	<session-factory>
 		<!-- JDBC Database connection settings -->
 		<property name="connection.driver_class">org.postgresql.Driver</property>
-		<property name="connection.url">jdbc:postgresql://localhost/akshat_db1</property>
-		<property name="connection.username">postgres</property>
-		<property name="connection.password">root</property>
+		<property name="connection.url">jdbc:postgresql://ec2-52-22-238-188.compute-1.amazonaws.com:5432/d39k4hpo4v495e</property>
+		<property name="connection.username">pkekfmvabgdsys</property>
+		<property name="connection.password">f07935c398a7bfe03544252d72fae115a5ded97da97fde837127a8fb3d1bf71e</property>
 
 		<!-- JDBC connection pool settings ... using built-in test pool -->
 		<property name="connection.pool_size">3</property>
