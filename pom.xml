@@ -92,14 +92,27 @@
 		    <scope>provided</scope>
 		</dependency>
 
+		<dependency>
+		    <groupId>javax.servlet.jsp</groupId>
+		    <artifactId>jsp-api</artifactId>
+		    <version>2.2</version>
+		    <scope>provided</scope>
+		</dependency>
+
+   		
+		<dependency>
+		    <groupId>org.apache.tomcat</groupId>
+		    <artifactId>tomcat-catalina</artifactId>
+		    <version>9.0.40</version>
+		</dependency>
+
    		
    		<dependency>
-		    <groupId>org.apache.tomcat</groupId>
-		    <artifactId>tomcat</artifactId>
-		    <version>9.0.0.M1</version>
-		    <type>pom</type>
+		    <groupId>tomcat</groupId>
+		    <artifactId>jasper-compiler-jdt</artifactId>
+		    <version>5.5.23</version>
 		</dependency>
-   		
+		   		
   </dependencies>
 
   <build>
@@ -130,12 +143,13 @@
         </configuration>
       </plugin>
       
+    
      <plugin>
 	    <groupId>org.apache.tomcat.maven</groupId>
-	    <artifactId>tomcat7-maven-plugin</artifactId>
+	    <artifactId>tomcat9-maven-plugin</artifactId>
 	    <version>2.2</version>
 	    <configuration>
-	        <url>http://localhost:8080/manager/text</url>
+	        <url>http://localhost:8080/BuyFy</url>
 	        <server>TomcatServer</server>
 	        <path>/myapp</path>
 	    </configuration>
@@ -175,6 +189,30 @@
                 </execution>
             </executions>
         </plugin>
+        
+        <!--  
+         <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.3</version>
+        <executions>
+            <execution>
+                <phase>package</phase>
+                <goals><goal>copy</goal></goals>
+                <configuration>
+                    <artifactItems>
+                        <artifactItem>
+                            <groupId>com.github.jsimone</groupId>
+                            <artifactId>webapp-runner</artifactId>
+                            <version>8.5.11.3</version>
+                            <destFileName>webapp-runner.jar</destFileName>
+                        </artifactItem>
+                    </artifactItems>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
+    -->
     </plugins>
   </build>
 </project>
