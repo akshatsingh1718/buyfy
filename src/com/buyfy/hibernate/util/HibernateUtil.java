@@ -2,9 +2,9 @@ package com.buyfy.hibernate.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
- 
+
 public class HibernateUtil {
-    private static SessionFactory sessionFactory;
+	private static SessionFactory sessionFactory;
 //    static{
 //        try {
 //        	sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -13,13 +13,13 @@ public class HibernateUtil {
 //            throw new ExceptionInInitializerError(ex); 
 //         }
 //    }
-    
+
 	public static SessionFactory getSessionFactory() {
 		if (sessionFactory == null) {
-	    	sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+			sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		}
-	    	return sessionFactory;
-    }
+		return sessionFactory;
+	}
 //    public static SessionFactory getSessionFactory() {
 //        if (sessionFactory == null) {
 //            // loads configuration and mappings
@@ -35,5 +35,3 @@ public class HibernateUtil {
 //        return sessionFactory;
 //    }
 }
-
-     

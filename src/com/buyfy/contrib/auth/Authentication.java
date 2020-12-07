@@ -34,7 +34,9 @@ public class Authentication {
 			// Setting email paramter
 			query.setParameter("email", email);
 			// Fetching first record in the list as there will be only one record per email
+			
 			user = (User)query.list().get(0);
+			System.out.println("users"+user);
 			// generating hash of password given by user
 			password = generateHash(password);
 			// checking if the email and password are correct

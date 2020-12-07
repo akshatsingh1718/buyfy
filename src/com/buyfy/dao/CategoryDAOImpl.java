@@ -66,7 +66,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			tx = session.getTransaction();
 			tx.begin();
 			// HQL query for deleting a category 
-			String hql = "DELETE FROM Category c WHERE a.id=:id";
+			String hql = "DELETE FROM Category c WHERE c.id=:id";
 			Query query = session.createQuery(hql);
 			query.setParameter("id", cid);
 			int res = query.executeUpdate();
