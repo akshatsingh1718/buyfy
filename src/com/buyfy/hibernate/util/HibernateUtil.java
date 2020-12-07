@@ -15,8 +15,10 @@ public class HibernateUtil {
 //    }
     
 	public static SessionFactory getSessionFactory() {
-    	sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-    	return sessionFactory;
+		if (sessionFactory == null) {
+	    	sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		}
+	    	return sessionFactory;
     }
 //    public static SessionFactory getSessionFactory() {
 //        if (sessionFactory == null) {
