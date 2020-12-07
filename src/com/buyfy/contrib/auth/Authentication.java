@@ -30,7 +30,7 @@ public class Authentication {
 			// HQL query for fetching user with email
 			String hql = "FROM User WHERE email = :email";
 			// Creating HQL Query
-			Query query = session.createQuery(hql);
+			Query<?> query = session.createQuery(hql);
 			// Setting email paramter
 			query.setParameter("email", email);
 			// Fetching first record in the list as there will be only one record per email
