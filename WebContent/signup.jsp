@@ -162,7 +162,7 @@
 								</div>
 							</c:when>
 							<c:otherwise>
-								<input type="hidden" name="account-type" value="admin"/>
+								<input type="hidden" name="account-type" value="user"/>
 							</c:otherwise>
 							</c:choose>
 						</div>
@@ -198,6 +198,7 @@
 				if(checkAllFilled()){
 				password = $("#password").val();
 				cpassword = $("#cpassword").val();
+				console.log('senfing');
 				if (password === cpassword) {
 					email = $('#email').val();
 					$.ajax(
@@ -208,7 +209,7 @@
 								email: email
 							},
 							success: function (responseText) {
-								// If the response is true the record is deleted
+								// If the response is true the record is already exist
 								if (responseText === 'true') {
 									$("#message-box").empty();
 									message = `

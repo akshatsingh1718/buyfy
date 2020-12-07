@@ -57,7 +57,6 @@ public class AddUserServ extends HttpServlet {
 		// Allocate a output writer to write the response message into the network socket
 		PrintWriter out = response.getWriter();
 		try {
-			System.out.println("------ CREATING A USER START-----");
 			HttpSession httpsession = request.getSession();
 			String auth_token = (String) httpsession.getAttribute("auth-token");
 			// Checking if the auth_token is same as AUTH_TOKEN

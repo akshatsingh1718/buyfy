@@ -24,33 +24,34 @@ import com.buyfy.model.User;
 @WebServlet("/CheckUserExistServ")
 // checking if user exist
 public class CheckUserExistServ extends HttpServlet {
-	//serial version uid
+	// serial version uid
 	private static final long serialVersionUID = 1L;
-	
-    public CheckUserExistServ() {
-        super();
-    }
+
+	public CheckUserExistServ() {
+		super();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		// Allocate a output writer to write the response message into the network socket
-
+		// Allocate a output writer to write the response message into the network
+		// socket
 		PrintWriter out = null;
 		try {
-		      // Set response content type
+			// Set response content type
 			response.setContentType("text/html");
 			out = response.getWriter();
 			String email = request.getParameter("email");
 			// set user new details for session
 			User user = UserController.getUserByEmail(email);
 			// checking user if exist or not
-			if(user != null) {
+			if (user != null) {
 				out.print("true");
-			}else {
+			} else {
 				out.print("false");
 			}
-			// If Any Servlet Exception Occurs Then Redirect To 500 Error Page or Maintenance Page
+			// If Any Servlet Exception Occurs Then Redirect To 500 Error Page or
+			// Maintenance Page
 
-		}catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			response.sendRedirect("500.jsp");
 		}
