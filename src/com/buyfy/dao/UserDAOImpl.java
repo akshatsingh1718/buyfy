@@ -4,7 +4,7 @@ package com.buyfy.dao;
 import java.util.LinkedList;
 import java.util.List;
 // Importing hibernate statements for the program
-import org.hibernate.Query;
+import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
