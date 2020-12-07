@@ -8,8 +8,6 @@
     id="WebApp_ID"
     version="4.0">
 
-
-
     <display-name>BuyFy</display-name>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

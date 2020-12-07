@@ -5,7 +5,7 @@ package com.buyfy.dao;
 import java.util.List;
 
 // Import hibernate statements for the program 
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -67,7 +67,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			tx.begin();
 			// HQL query for deleting a category 
 			String hql = "DELETE FROM Category c WHERE a.id=:id";
-			Query<?> query = session.createNativeQuery(hql);
+			Query query = session.createQuery(hql);
 			query.setParameter("id", cid);
 			int res = query.executeUpdate();
 			// committing the data
@@ -135,7 +135,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			tx = session.getTransaction();
 			tx.begin();
 			// HQL query for getting all categories
-			Query qry = session.createNativeQuery("FROM Category c");
+			Query qry = session.createQuery("FROM Category c");
 			categoryList = qry.list();
 			tx.commit();session.close();
 		}catch(Exception ex) {

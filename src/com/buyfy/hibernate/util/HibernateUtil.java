@@ -1,11 +1,7 @@
 package com.buyfy.hibernate.util;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-
-import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
  
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
@@ -17,7 +13,8 @@ public class HibernateUtil {
 //            throw new ExceptionInInitializerError(ex); 
 //         }
 //    }
-    public static SessionFactory getSessionFactory() {
+    
+	public static SessionFactory getSessionFactory() {
     	sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
     	return sessionFactory;
     }
