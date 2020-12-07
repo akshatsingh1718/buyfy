@@ -2,7 +2,7 @@ package com.buyfy.contrib.auth;
 
 import static com.buyfy.contrib.auth.hasher.SecureHashingAlgo.*;
 
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -20,10 +20,10 @@ public class Authentication {
 		Transaction tx = null;
 		User user = null;
 		try {
-//			factory = HibernateUtil.getSessionFactory();
-			session = HibernateUtil.getSession();
+			factory = HibernateUtil.getSessionFactory();
+//			session = HibernateUtil.getSession();
 			// instantiating session factory
-//			session = factory.getCurrentSession();
+			session = factory.getCurrentSession();
 			tx = session.getTransaction();
 			// begin transaction
 			tx.begin();
