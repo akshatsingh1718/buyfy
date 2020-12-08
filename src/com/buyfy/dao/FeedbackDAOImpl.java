@@ -46,7 +46,8 @@ public class FeedbackDAOImpl implements FeedbackDAO {
 			// saving feedback
 			session.save(feedback);
 			// committing the data
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 			return true;
 		} catch (Exception ex) {
 			if (tx != null) {
@@ -85,7 +86,7 @@ public class FeedbackDAOImpl implements FeedbackDAO {
 				// if exception occurs rollback
 				tx.rollback();
 			}
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
 		}
 		return feedbacks;
 	}

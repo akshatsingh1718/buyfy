@@ -34,7 +34,8 @@ public class OrderDAOImpl implements OrderDAO {
 			// saving an order
 			long orderId = (long) session.save(order);
 			// committing the data
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 			return orderId;
 		}
 		catch(Exception ex){
@@ -42,7 +43,8 @@ public class OrderDAOImpl implements OrderDAO {
 				// if exception occurs
 				tx.rollback();
 			}
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
+//			session.close();
 			return -1;
 		}
 	}
@@ -67,7 +69,8 @@ public class OrderDAOImpl implements OrderDAO {
 			// updating order
 			session.update(order);
 			//committing the data
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 			return true;
 		}
 		catch(Exception ex){
@@ -103,14 +106,16 @@ public class OrderDAOImpl implements OrderDAO {
 			// deleting order
 			session.delete(order);
 			// committing the data
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 			return true;
 		}catch(Exception ex) {
 			if(tx!= null) {
 				// if exception occurs
 				tx.rollback();
 			}
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
+//			session.close();
 			return false;
 		}
 	}
@@ -137,12 +142,14 @@ public class OrderDAOImpl implements OrderDAO {
 			// getting order by orderId
 			order = (Order)session.get(Order.class, orderId);
 			// committing the data
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 			return order;
 		}catch(Exception ex) {
 			if(tx!= null) {
 				// if exception occurs
-				tx.rollback();session.close();
+				tx.rollback();
+//				session.close();
 			}
 			ex.printStackTrace();
 			return null;
@@ -170,13 +177,15 @@ public class OrderDAOImpl implements OrderDAO {
 			// HQL query  to get all the orders through list
 			Query qry = session.createQuery("FROM Order o");
 			orders = qry.list();
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 		}catch(Exception ex) {
 			if(tx!=null) {
 				// if exception occurs
 				tx.rollback();
 			}
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
+//			session.close();
 		}
 		return orders;
 	}	

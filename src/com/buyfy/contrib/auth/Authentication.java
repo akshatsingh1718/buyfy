@@ -1,12 +1,10 @@
 package com.buyfy.contrib.auth;
 
 import static com.buyfy.contrib.auth.hasher.SecureHashingAlgo.*;
-
 import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
 import com.buyfy.hibernate.util.HibernateUtil;
 import com.buyfy.model.User;
 

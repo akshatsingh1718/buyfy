@@ -33,7 +33,7 @@ public class ProductDAOImpl implements ProductDAO {
 				session.save(product);
 				// committing the data
 				tx.commit();
-				session.close();
+//				session.close();
 				return true;
 			}catch(Exception ex) {
 				if(tx!= null) {
@@ -42,7 +42,7 @@ public class ProductDAOImpl implements ProductDAO {
 				}
 				System.out.println("PRODUCT Failed _______________");
 				ex.printStackTrace();
-				session.close();
+//				session.close();
 				return false;
 			}
 		}
@@ -67,14 +67,15 @@ public class ProductDAOImpl implements ProductDAO {
 			session.update(product);
 			// committing the data
 			tx.commit();
-			session.close();
+//			session.close();
 			return true;
 		}catch(Exception ex) {
 			if(tx!=null) {
 				// if exception occurs
 				tx.rollback();
 			}
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
+//			session.close();
 		}
 		return false;
 	}
@@ -100,13 +101,14 @@ public class ProductDAOImpl implements ProductDAO {
 			Query qry = session.createQuery("from Product u");
 			prodList = qry.list();
 			tx.commit();
-			session.close();
+//			session.close();
 		}catch(Exception ex) {
 			if(tx!=null) {
 				// if exception ocurs
 				tx.rollback();
 			}
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
+//			session.close();
 		}
 		return prodList;
 	}
@@ -132,13 +134,15 @@ public class ProductDAOImpl implements ProductDAO {
 			// getting product using pid 
 			product= (Product)session.get(Product.class, pid);
 			// committing the data
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 		}catch(Exception ex) {
 			if(tx!= null) {
 				// if exception occurs
 				tx.rollback();
 			}
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
+//			session.close();
 		}
 		return product;
 	}
@@ -167,12 +171,14 @@ public class ProductDAOImpl implements ProductDAO {
 			//deleting the product 
 			session.delete(product);
 			// committing the data 
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 			return true;
 		}catch(Exception ex) {
 			if(tx!=null) {
 				// if exception occurs
-				tx.rollback();session.close();
+				tx.rollback();
+//				session.close();
 			}
 			ex.printStackTrace();
 		}

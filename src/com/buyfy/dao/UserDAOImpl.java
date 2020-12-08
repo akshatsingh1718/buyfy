@@ -42,7 +42,7 @@ public class UserDAOImpl implements UserDAO {
 			System.out.println("SAVE " + e);
 			// committing the data
 			tx.commit();
-			session.close();
+//			session.close();
 			return id;
 		}
 		catch(Exception ex){
@@ -50,7 +50,7 @@ public class UserDAOImpl implements UserDAO {
 				// if exception occurs
 				tx.rollback();
 			}
-			session.close();
+//			session.close();
 			ex.printStackTrace();
 			return -1;
 		}
@@ -78,14 +78,14 @@ public class UserDAOImpl implements UserDAO {
 			session.delete(u);
 			// committing the data
 			tx.commit();
-			session.close();
+//			session.close();
 			return true;
 		}catch(Exception ex) {
 			if(tx!= null) {
 				// if exception occurs
 				tx.rollback();
 			}
-			session.close();
+//			session.close();
 			ex.printStackTrace();
 			return false;
 		}
@@ -113,13 +113,13 @@ public class UserDAOImpl implements UserDAO {
 			Query qry = session.createQuery("FROM User u");
 			userList = qry.list();
 			tx.commit();
-			session.close();
+//			session.close();
 		}catch(Exception ex) {
 			if(tx!=null) {
 				// if exception occurs
 				tx.rollback();
 			}
-			session.close();
+//			session.close();
 			ex.printStackTrace();
 		}
 		return userList;
@@ -148,13 +148,13 @@ public class UserDAOImpl implements UserDAO {
 			user = (User)session.get(User.class, uid);
 			// committing the data
 			tx.commit();
-			session.close();
+//			session.close();
 		}catch(Exception ex) {
 			if(tx!= null) {
 				// if exception occurs
 				tx.rollback();
 			}
-			session.close();
+//			session.close();
 			ex.printStackTrace();
 		}
 		return user;
@@ -181,14 +181,14 @@ public class UserDAOImpl implements UserDAO {
 			session.update(user);
 			// committing the data
 			tx.commit();
-			session.close();
+//			session.close();
 			return true;
 		}catch(Exception ex) {
 			if(tx!=null) {
 				// if exception occurs
 				tx.rollback();
 			}
-			session.close();
+//			session.close();
 			ex.printStackTrace();
 		}
 		return false;
@@ -217,14 +217,14 @@ public class UserDAOImpl implements UserDAO {
 			user.getAddress().add(address);
 			// committing the data
 			tx.commit();
-			session.close();
+//			session.close();
 			return true;
 		}catch(Exception ex) {
 			if(tx!=null) {
 				// if exception occurs
 				tx.rollback();
 			}
-			session.close();
+//			session.close();
 			ex.printStackTrace();
 		}
 		return false;
@@ -252,14 +252,14 @@ public class UserDAOImpl implements UserDAO {
 			user.getOrders().add(order);
 			// committing the data
 			tx.commit();
-			session.close();
+//			session.close();
 			return true;
 		}catch(Exception ex) {
 			if(tx!=null) {
 				// if exception occurs
 				tx.rollback();
 			}
-			session.close();
+//			session.close();
 			ex.printStackTrace();
 		}
 		return false;
@@ -291,14 +291,14 @@ public class UserDAOImpl implements UserDAO {
 			user = (User)(query.list().size()> 0?query.list().get(0):null);
 			// committing the data
 			tx.commit();
-			session.close();
+//			session.close();
 		}catch(Exception ex) {
 			if(tx!= null) {
 				System.out.println("GET BY EMAL ~!!1");
 				// if exception occurs
 				tx.rollback();
 			}
-			session.close();
+//			session.close();
 			ex.printStackTrace();
 		}
 		return user;
@@ -329,14 +329,14 @@ public class UserDAOImpl implements UserDAO {
 			query.setParameter("id", userId);
 			orders = query.list();
 			// committing the data
-			session.close();
+//			session.close();
 			tx.commit();
 		}catch(Exception ex) {
 			if(tx!= null) {
 				// if exception occurs
 				tx.rollback();
 			}
-			session.close();
+//			session.close();
 			ex.printStackTrace();
 		}
 		return orders;

@@ -32,7 +32,7 @@ public class AddressDAOImpl implements AddressDAO {
 				session.save(address);
 				// committing the data
 				tx.commit();
-				session.close();
+//				session.close();
 				return true;
 			}
 			catch(Exception ex){
@@ -65,7 +65,8 @@ public class AddressDAOImpl implements AddressDAO {
 			// updating address
 			session.update(address);
 			//committing the data
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 			return true;
 		}catch(Exception ex) {
 			if(tx!=null) {
@@ -100,7 +101,8 @@ public class AddressDAOImpl implements AddressDAO {
 			query.setParameter("id", aid);
 			int res = query.executeUpdate();
 			// committing the data
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 			// returning result
 			return (res>0?true:false);
 		}

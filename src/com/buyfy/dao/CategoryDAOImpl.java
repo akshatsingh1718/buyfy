@@ -35,7 +35,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 			// saving or updating the category
 			session.saveOrUpdate(category);
 			// comitting the data
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 			return true;
 		}
 		catch(Exception ex){
@@ -71,7 +72,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 			query.setParameter("id", cid);
 			int res = query.executeUpdate();
 			// committing the data
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 			// returning greater than 0
 			return (res>0?true:false);
 		}catch(Exception ex) {
@@ -111,7 +113,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 				// if exception occurs rollback
 				tx.rollback();
 			}
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
+//			session.close();
 		}
 		return category;
 	}
@@ -137,7 +140,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 			// HQL query for getting all categories
 			Query qry = session.createQuery("FROM Category c");
 			categoryList = qry.list();
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 		}catch(Exception ex) {
 			if(tx!=null) {
 				// if exception occurs
@@ -177,7 +181,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 			session.getTransaction().commit();session.close();
 		}catch(Exception ex) {
 			System.out.println("ERROR : get CAt By Name");
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
+//			session.close();
 		}
 		return category;
 	}
@@ -201,7 +206,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 			// updating the category
 			session.update(category);
 			// committing the data
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 			return true;
 		}catch(Exception ex) {
 			if(tx!=null) {
