@@ -58,6 +58,12 @@
             <version>1.0.1.Final</version>
         </dependency>
 
+        <!-- Postgres SQL -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.18</version>
+        </dependency>
 
         <!-- Paytm -->
         <dependency>
