@@ -44,7 +44,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 				// if exception occurs rollback
 				tx.rollback();
 			}
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
+//			session.close();
 			return false;
 		}
 	}
@@ -81,7 +82,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 				// if exception occurs
 				tx.rollback();
 			}
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
+//			session.close();
 			return false;
 		}
 	}
@@ -147,7 +149,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 				// if exception occurs
 				tx.rollback();
 			}
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
+//			session.close();
 		}
 		return categoryList;
 	}
@@ -172,13 +175,12 @@ public class CategoryDAOImpl implements CategoryDAO {
 			String hql = "FROM Category WHERE categoryType = :categoryName";
 			Query query = session.createQuery(hql);
 			query.setParameter("categoryName", categoryName);
-			System.out.println("Query list size :::::::::::" + query.list().size());
-			System.out.println("Query list :::::::::::" + query.list());
 			if(query.list().size() > 0) {
 				category = (Category)query.list().get(0);
 			}
 			// committing the data
-			session.getTransaction().commit();session.close();
+			session.getTransaction().commit();
+//			session.close();
 		}catch(Exception ex) {
 			System.out.println("ERROR : get CAt By Name");
 			ex.printStackTrace();
@@ -214,7 +216,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 				// if exception occurs rollback
 				tx.rollback();
 			}
-			ex.printStackTrace();session.close();
+			ex.printStackTrace();
+//			session.close();
 		}
 		return false;
 	}
