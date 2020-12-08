@@ -1,7 +1,7 @@
 package com.buyfy.contrib.auth;
 
 import static com.buyfy.contrib.auth.hasher.SecureHashingAlgo.*;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -28,7 +28,7 @@ public class Authentication {
 			// HQL query for fetching user with email
 			String hql = "FROM User WHERE email = :email";
 			// Creating HQL Query
-			Query<?> query = session.createQuery(hql);
+			Query query = session.createQuery(hql);
 			// Setting email paramter
 			query.setParameter("email", email);
 			// Fetching first record in the list as there will be only one record per email
