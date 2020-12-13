@@ -1,5 +1,6 @@
 // Model package
 package com.buyfy.dao;
+
 // Import java statements for the program
 import java.util.List;
 // Import hibernate statements for the program
@@ -15,41 +16,41 @@ public class ProductDAOImpl implements ProductDAO {
 	// Method for saving the Product
 	@Override
 	public boolean save(Product product) {
-			// creating transaction variable
-			Transaction tx = null;
-			// creating session factory variable
-			SessionFactory factory = null;
-			// creating session variable
-			Session session = null;
-			try {
-				// Preparing session factory for work
-				factory = HibernateUtil.getSessionFactory();
+		// creating transaction variable
+		Transaction tx = null;
+		// creating session factory variable
+		SessionFactory factory = null;
+		// creating session variable
+		Session session = null;
+		try {
+			// Preparing session factory for work
+			factory = HibernateUtil.getSessionFactory();
 //				session = HibernateUtil.getSession();
-				// instantiating session factory
-				session = factory.getCurrentSession();
-				tx = session.getTransaction();
-				tx.begin();
-				// saving a product
-				session.save(product);
-				// committing the data
-				tx.commit();
-//				session.close();
-				return true;
-			}catch(Exception ex) {
-				if(tx!= null) {
-					// if exception occurs
-					tx.rollback();
-				}
-				System.out.println("PRODUCT Failed _______________");
-				ex.printStackTrace();
-//				session.close();
-				return false;
+			// instantiating session factory
+			session = factory.getCurrentSession();
+			tx = session.getTransaction();
+			tx.begin();
+			// saving a product
+			session.save(product);
+			// committing the data
+			tx.commit();
+//			session.close();
+			return true;
+		} catch (Exception ex) {
+			if (tx != null) {
+				// if exception occurs
+				tx.rollback();
 			}
+			System.out.println("PRODUCT Failed _______________");
+			ex.printStackTrace();
+//			session.close();
+			return false;
 		}
+	}
 
-	//Method for updating the product
+	// Method for updating the product
 	public boolean update(Product product) {
-		//creating transaction variable
+		// creating transaction variable
 		Transaction tx = null;
 		// creating session factory variable
 		SessionFactory factory = null;
@@ -69,8 +70,8 @@ public class ProductDAOImpl implements ProductDAO {
 			tx.commit();
 //			session.close();
 			return true;
-		}catch(Exception ex) {
-			if(tx!=null) {
+		} catch (Exception ex) {
+			if (tx != null) {
 				// if exception occurs
 				tx.rollback();
 			}
@@ -81,8 +82,8 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	// List for getting all products
-	public List<Product> getAllProducts(){
-		//creating transaction variable
+	public List<Product> getAllProducts() {
+		// creating transaction variable
 		Transaction tx = null;
 		// creating session factory variable
 		SessionFactory factory = null;
@@ -98,12 +99,14 @@ public class ProductDAOImpl implements ProductDAO {
 			tx = session.getTransaction();
 			tx.begin();
 			// HQL query to get all the products through list
-			Query qry = session.createQuery("from Product u");
+			Query qry = session.createQuery("FROM Product u");
 			prodList = qry.list();
-			tx.commit();
+			if (!tx.wasCommitted()) {
+				tx.commit();
+			}
 //			session.close();
-		}catch(Exception ex) {
-			if(tx!=null) {
+		} catch (Exception ex) {
+			if (tx != null) {
 				// if exception ocurs
 				tx.rollback();
 			}
@@ -112,7 +115,7 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 		return prodList;
 	}
-	
+
 	// Method for searching product by pid
 	public Product getProductById(long pid) {
 		// creating transaction variable
@@ -131,13 +134,13 @@ public class ProductDAOImpl implements ProductDAO {
 			session = factory.getCurrentSession();
 			tx = session.getTransaction();
 			tx.begin();
-			// getting product using pid 
-			product= (Product)session.get(Product.class, pid);
+			// getting product using pid
+			product = (Product) session.get(Product.class, pid);
 			// committing the data
 			tx.commit();
 //			session.close();
-		}catch(Exception ex) {
-			if(tx!= null) {
+		} catch (Exception ex) {
+			if (tx != null) {
 				// if exception occurs
 				tx.rollback();
 			}
@@ -146,7 +149,7 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 		return product;
 	}
-	
+
 	// Method for deleting product by pid
 	@Override
 	public boolean deleteProductById(long pid) {
@@ -167,15 +170,15 @@ public class ProductDAOImpl implements ProductDAO {
 			tx = session.getTransaction();
 			tx.begin();
 			// getting the product by pid
-			product = getProductById(pid);
-			//deleting the product 
+			product = (Product) session.get(Product.class, pid);
+			// deleting the product
 			session.delete(product);
-			// committing the data 
+			// committing the data
 			tx.commit();
 //			session.close();
 			return true;
-		}catch(Exception ex) {
-			if(tx!=null) {
+		} catch (Exception ex) {
+			if (tx != null) {
 				// if exception occurs
 				tx.rollback();
 //				session.close();

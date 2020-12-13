@@ -18,16 +18,16 @@ import com.buyfy.model.User;
 /**
  * Servlet Filter implementation class AdminFilter
  */
-@WebFilter(filterName = "/AdminFilter",
-				urlPatterns = {"/DisplayAllUsersServ", "/DisplayAllProductsServ","/DisplayAllFeedback","/admin-dashboard.jsp",})
+@WebFilter(filterName = "/AdminFilter", urlPatterns = { "/DisplayAllUsersServ", "/DisplayAllProductsServ",
+		"/DisplayAllFeedback", "/admin-dashboard.jsp", })
 public class AdminFilter implements Filter {
 
-    /**
-     * Default constructor. 
-     */
-    public AdminFilter() {
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * Default constructor.
+	 */
+	public AdminFilter() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Filter#destroy()
@@ -39,16 +39,20 @@ public class AdminFilter implements Filter {
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-    	HttpSession session = ((HttpServletRequest) request).getSession();
-    	User user= (User)session.getAttribute("user");
-    	// Checking that the user is admin or not
-        if(user.getAccountType().equals("admin")){
-        	chain.doFilter(request, response);
-        }
-        else{
-        	((HttpServletResponse) response).sendRedirect("index.jsp");
-        } 
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		HttpSession session = ((HttpServletRequest) request).getSession();
+		User user = (User) session.getAttribute("user");
+		// Checking that the user is admin or not
+		if (user != null) {
+			if (user.getAccountType().equals("admin")) {
+				chain.doFilter(request, response);
+			} else {
+				((HttpServletResponse) response).sendRedirect("index.jsp");
+			}
+		} else {
+			((HttpServletResponse) response).sendRedirect("index.jsp");
+		}
 	}
 
 	/**

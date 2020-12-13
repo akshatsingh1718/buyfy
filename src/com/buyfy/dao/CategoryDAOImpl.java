@@ -109,7 +109,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 			tx.begin();
 			category= (Category)session.get(Category.class, cid);
 			// committing the data
-			tx.commit();session.close();
+			tx.commit();
+//			session.close();
 		}catch(Exception ex) {
 			if(tx!= null) {
 				// if exception occurs rollback

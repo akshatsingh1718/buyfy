@@ -16,7 +16,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -63,7 +62,7 @@ public class Product implements Serializable
 	//variable for product image
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "product_images")
-	private Set<Image> images = new HashSet<>(); // initialized product image to desc. product easily
+	private Set<Image> images;
 
 	//variable for product name
 	@Column(name = "Product_Name")
