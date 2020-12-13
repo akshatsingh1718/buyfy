@@ -53,7 +53,7 @@
 					<div class="form-group mr-3 col-md-12">
 						<input type="text" class="form-control col-md-4 col-sm-6 col-xs-6"
 							style="border: none; border-bottom: groove;  border-radius: 0;" id="searchUser" name="username"
-							placeholder="Search Product Records" required />
+							placeholder="Search User" required />
 	
 						<button type="submit" class="btn bg-green-400 ml-3 hover:bg-green-500 col-md-1 col-sm-2 col-xs-4">Search</button>
 					</div>
