@@ -23,7 +23,6 @@ public class ProductController {
 	// Method to save a product
 	public static boolean save(String pname, long uid, String desc, double price, double discountedPrice,
 			String catType, String catSubtype, Set<Image> images) {
-		System.out.println("product creation start--------------");
 		boolean defaultAvailablility = true;
 		float initialRanking = 1f;
 		User vendor = UserController.getUserById(uid);
@@ -48,10 +47,8 @@ public class ProductController {
 		// Saving images
 		images = ImageController.saveAllImages(images);
 		if(images == null) {
-			System.out.println("Images cannot be saved --------");
 			return false;
 		}else {
-			System.out.println("Images Saved --------");
 			prod.setImages(images);
 		}
 
@@ -65,11 +62,9 @@ public class ProductController {
 			// saving the category
 			CategoryController.saveCategory(category);
 		} catch (Exception ex) {
-			System.out.println("Error While creating category------------");
 			return false;
 		}
 		prod.setCategory(category);
-		System.out.println("Category created--------------");
 		System.out.println(category);
 		System.out.println(prod);
 		return dao.save(prod);
