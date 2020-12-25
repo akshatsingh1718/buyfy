@@ -95,6 +95,7 @@ public class LoginServ extends HttpServlet {
 				// forward request to index.jsp after creating user session
 				rd = request.getRequestDispatcher("index.jsp");
 				rd.forward(request, response);
+//				response.sendRedirect("index.jsp");
 			} else {
 				/* If the details is not correct then forward it's request to
 				 * login.jsp back with error message

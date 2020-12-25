@@ -135,11 +135,11 @@
 				Product Images</h1>
 			<div class="form-group mt-3 row">
 				<div class="col-md-6 p-3">
-					<input id="filebutton" name="image1" class="btn bg-purple-300"
+					<input id="filebutton" name="image1" class="btn bg-red-300"
 						type="file" required>
 				</div>
 				<div class="col-md-6 p-3">
-					<input id="filebutton" name="image2" class="btn bg-red-300"
+					<input id="filebutton" name="image2" class="btn bg-purple-300"
 						type="file">
 				</div>
 				<div class="col-md-6 p-3">
