@@ -131,8 +131,7 @@
 				</div>
 			</div>
 			<!-- File Button -->
-			<h1 class="text-xl bg-green-300 p-2 mt-6 col-md-4">Upload Your
-				Product Images</h1>
+			<h1 class="text-xl bg-green-300 p-2 mt-6 col-md-4">Upload Your Product Images</h1>
 			<div class="form-group mt-3 row">
 				<div class="col-md-6 p-3">
 					<input id="filebutton" name="image1" class="btn bg-red-300"

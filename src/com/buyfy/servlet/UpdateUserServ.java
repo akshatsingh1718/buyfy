@@ -60,7 +60,6 @@ public class UpdateUserServ extends HttpServlet {
 			String auth_token = (String) httpsession.getAttribute("auth-token");
 			// Checking if the auth_token is same as AUTH_TOKEN
 			if (auth_token.equals(AUTH_TOKEN) && auth_token!=null) {
-				System.out.println("--------- In -------------");
 				/*
 				 * Constatnt's for image's name and path
 				 */
